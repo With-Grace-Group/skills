@@ -16,7 +16,7 @@ Nothing to install and no terminal. This is the route for most people.
 `Settings`, `Connectors`, `Add custom connector`, and paste:
 
 ```
-https://withgrace.getaddis.im/mcp
+https://app.wgrace.co/mcp
 ```
 
 Then connect, and sign in when prompted.
@@ -25,7 +25,7 @@ On a Team or Enterprise plan an owner adds the connector once for the
 organisation, after which each person connects their own account.
 
 No account yet? Sign up at
-[withgrace.getaddis.im](https://withgrace.getaddis.im) first. A new account
+[app.wgrace.co](https://app.wgrace.co) first. A new account
 starts empty and sees only its own records.
 
 For Claude Desktop you can edit the config directly instead:
@@ -35,7 +35,7 @@ For Claude Desktop you can edit the config directly instead:
   "mcpServers": {
     "withgrace": {
       "type": "http",
-      "url": "https://withgrace.getaddis.im/mcp"
+      "url": "https://app.wgrace.co/mcp"
     }
   }
 }
@@ -87,7 +87,7 @@ you would rather not run anything.
 **Claude Code**
 
 ```bash
-claude mcp add --transport http --scope user withgrace https://withgrace.getaddis.im/mcp
+claude mcp add --transport http --scope user withgrace https://app.wgrace.co/mcp
 claude mcp login withgrace
 ```
 
@@ -102,7 +102,7 @@ such limitation, which is why it is the recommended route.
 **Codex**
 
 ```bash
-codex mcp add withgrace --url https://withgrace.getaddis.im/mcp
+codex mcp add withgrace --url https://app.wgrace.co/mcp
 codex mcp login withgrace
 ```
 
@@ -116,7 +116,7 @@ to use them well, which mostly means never inventing a price.
 For Claude Code, clone this repository into your skills directory:
 
 ```bash
-git clone https://github.com/withgrace-group/withgrace-skill.git \
+git clone https://github.com/With-Grace-Group/skills.git \
   ~/.claude/skills/withgrace
 ```
 
@@ -171,7 +171,7 @@ finished. Run `npx withgrace auth status` to see which it is, then
 `npx withgrace auth login` again.
 
 **`Failed to connect` with an HTTP code.** The client could not reach the
-connector at all. Check the URL is exactly `https://withgrace.getaddis.im/mcp`.
+connector at all. Check the URL is exactly `https://app.wgrace.co/mcp`.
 
 **`Pending approval`.** The connector was added to a project rather than to
 you. Run `claude` and approve it, or add it again with `--scope user`.
