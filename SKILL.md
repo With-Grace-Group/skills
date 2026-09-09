@@ -21,7 +21,7 @@ say so rather than guessing at an answer.
 | `projects` | A development, with its name and its stage |
 | `properties` | An individual villa or lot: its code, status, price, area and phase |
 | `contacts` | People who have been in touch about a project |
-| `ad_campaigns` | Marketing campaigns, and which finished cut each one uses |
+| `ad_campaigns` | Marketing campaigns, and which finished cut each one uses. Readable; creating and changing one is restricted |
 
 Properties belong to a project. Projects belong to an organization.
 
@@ -78,6 +78,11 @@ refused, which is why the ignored list is worth reading.
 
 **Ask before creating.** A created record is real to everyone who reads it
 afterwards. Confirm the details with the person first.
+
+**Some records are readable but not writable.** Campaigns are one: they are
+produced and published by With Grace, so `create_record` and `update_record`
+refuse them for a client account and say so. Report that refusal rather than
+retrying it or working around it with a contact or a project.
 
 ## Worked example
 
