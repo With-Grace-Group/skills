@@ -16,10 +16,16 @@ Nothing to install and no terminal. This is the route for most people.
 `Settings`, `Connectors`, `Add custom connector`, and paste:
 
 ```
-https://app.wgrace.co/mcp
+https://mcp.wgrace.co/mcp
 ```
 
 Then connect, and sign in when prompted.
+
+The connector answers on `mcp.wgrace.co` and you sign in on `app.wgrace.co`.
+Those are deliberately different hosts: the URL a client connects to has to
+match the identifier the connector publishes, and sign in belongs to the
+account, not to the connector. Your client is told both when it connects, so
+there is nothing to configure beyond the URL above.
 
 On a Team or Enterprise plan an owner adds the connector once for the
 organisation, after which each person connects their own account.
@@ -35,7 +41,7 @@ For Claude Desktop you can edit the config directly instead:
   "mcpServers": {
     "withgrace": {
       "type": "http",
-      "url": "https://app.wgrace.co/mcp"
+      "url": "https://mcp.wgrace.co/mcp"
     }
   }
 }
@@ -87,7 +93,7 @@ you would rather not run anything.
 **Claude Code**
 
 ```bash
-claude mcp add --transport http --scope user withgrace https://app.wgrace.co/mcp
+claude mcp add --transport http --scope user withgrace https://mcp.wgrace.co/mcp
 claude mcp login withgrace
 ```
 
@@ -102,7 +108,7 @@ such limitation, which is why it is the recommended route.
 **Codex**
 
 ```bash
-codex mcp add withgrace --url https://app.wgrace.co/mcp
+codex mcp add withgrace --url https://mcp.wgrace.co/mcp
 codex mcp login withgrace
 ```
 
@@ -171,7 +177,7 @@ finished. Run `npx withgrace auth status` to see which it is, then
 `npx withgrace auth login` again.
 
 **`Failed to connect` with an HTTP code.** The client could not reach the
-connector at all. Check the URL is exactly `https://app.wgrace.co/mcp`.
+connector at all. Check the URL is exactly `https://mcp.wgrace.co/mcp`.
 
 **`Pending approval`.** The connector was added to a project rather than to
 you. Run `claude` and approve it, or add it again with `--scope user`.
