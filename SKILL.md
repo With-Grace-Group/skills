@@ -22,6 +22,11 @@ say so rather than guessing at an answer.
 | `properties` | An individual villa or lot: its code, status, price, area and phase |
 | `contacts` | People who have been in touch about a project |
 | `ad_campaigns` | Marketing campaigns, and which finished cut each one uses. Readable; creating and changing one is restricted |
+| `ownerships` | Who owns a share of a villa, and the terms of that share. Readable; creating and changing one is restricted |
+| `owner_statements` | A villa's monthly figures, draft until posted and never edited after. A change to a posted statement is a new draft that amends it. Readable; creating and changing one is restricted |
+| `owner_statement_lines` | The income and cost lines behind one statement, written once with it and never changed after. Readable; creating and changing one is restricted |
+| `owner_payouts` | A payment made to an owner against their share, draft until posted and never edited after. Readable; creating and changing one is restricted |
+| `owner_ledger_entries` | The running balance for an owner, covering profit, payouts and any correction. Nothing here is ever deleted; a mistake is reversed with a new entry. Readable; creating and changing one is restricted |
 
 Properties belong to a project. Projects belong to an organization.
 
@@ -50,6 +55,10 @@ table is a description of it and can fall behind.
 | `latest_ad` | The newest finished ad for a project, and where to fetch it |
 | `list_connectable_projects` | Which projects could have a CRM connected |
 | `crm_connection_status` | What one project has connected, and what needs reconnecting |
+| `owner_post` | Post a draft owner statement or payout. Administrators only |
+| `owner_amend` | Open a draft that amends a posted owner statement. Administrators only |
+| `owner_reverse` | Reverse an owner ledger entry with a new entry and a reason. Administrators only |
+| `get_owner_history` | Every earlier version of an ownership, statement or payout |
 
 Your client's own tool list is the authority, not this table. A connection may
 expose more than this skill describes, including tools for records your account
@@ -83,6 +92,11 @@ afterwards. Confirm the details with the person first.
 produced and published by With Grace, so `create_record` and `update_record`
 refuse them for a client account and say so. Report that refusal rather than
 retrying it or working around it with a contact or a project.
+
+**Owner records are never deleted.** Money in them is whole US cents. A posted
+statement or payout is corrected by amending it and posting the amendment; a
+ledger entry by reversing it. For the full procedure, call `find_skill` with
+"Sanctuary owner statement" and follow the `coo-sv` skill it returns.
 
 ## Worked example
 
