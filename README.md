@@ -1,11 +1,11 @@
 # With Grace for Claude
 
 This connects Claude, the AI assistant at [claude.ai](https://claude.ai), to
-your With Grace account. Once it is on, you can ask Claude about your project,
-your development or your villa, and it answers from your own records.
+your With Grace account. Once it is on, Claude can help you keep your Asana
+tasks tidy and work on the pages inside portal.wgrace.co.
 
-It is for With Grace admins, architect studio clients, landowner clients and
-villa buyers. [See what each can do](#who-this-is-for).
+It is for the With Grace team. It is not available to clients or villa buyers
+yet. [See who it is for](#who-this-is-for).
 
 You need a Claude account, and you only ever see what belongs to you. There is
 nothing to download. "MCP" is the name of the technology that links the two.
@@ -34,46 +34,26 @@ we will help you through it.
 
 ## Who this is for
 
-What you can do depends on who you are. Claude works it out from the email you
-sign in with, so there is nothing to choose.
+**The With Grace team**, signed in with a wgrace.co email. Claude can:
 
-| You are | What you can ask Claude to do |
-| --- | --- |
-| **Admin** on the With Grace team | See and update everything across all projects: villas, contacts, campaigns, tasks and owner statements |
-| **Architect studio client** who has hired With Grace to design a project | Follow your own project: which stage it is at, what is true now and what happens next |
-| **Landowner client** with a development on With Grace | See your own development: which villas are available, reserved or sold, their prices, the people who have enquired, and your latest ad |
-| **Buyer** who owns a villa | Read the monthly statements and payouts for your own villa. You can look but not change anything |
+- read your Asana tasks and help you give each one a due date, a Status and a
+  one line description, one task at a time, saving only what you approve
+- work on village pages, villa rooms, studio proposals, the CRM pipeline, room
+  documents and ads production in portal.wgrace.co
 
-If you sign in and Claude finds nothing, your email is probably not linked to a
-project or a villa yet. Email [hello@wgrace.co](mailto:hello@wgrace.co) and we
-will link it.
+**Clients and villa buyers:** not available yet. If you connect, Claude will
+tell you so.
 
 ## Try it
 
-For a landowner or studio client:
+> Help me tidy my Asana tasks, one at a time.
 
-> Where is my project up to, and what happens next?
+> Which of my tasks are missing a due date?
 
-> Which villas are still available, and what do they cost?
+> Mark the Sanctuary handover task as done.
 
-> Add a contact called Mira who asked about the two bedroom villas.
-
-For a buyer:
-
-> Show me last month's statement for my villa.
-
-Claude only reports figures that are written in your records. If a price or a
-date has not been recorded, it tells you so.
-
-## What it can reach
-
-Your own records, and only those: your organization, projects, villas, contacts
-and ad campaigns. A project is a whole development. A property is one villa or
-lot, with its own code, price, area and status.
-
-Some things you can read but not change. Campaigns are made and published by
-With Grace, and owner statements are posted by With Grace, so Claude will tell
-you it cannot edit those.
+Claude only reports what Asana and the portal actually hold. If a date or a
+figure has not been recorded, it tells you so.
 
 ## Help
 
@@ -185,7 +165,7 @@ Check with `codex mcp get withgrace`.
 ## Add the skill
 
 The connector gives your assistant the tools. [SKILL.md](SKILL.md) tells it how
-to use them well, which mostly means never inventing a price.
+to use them well: Asana first, one task at a time, and nothing saved without your yes.
 
 For Claude Code, clone this repository into your skills directory:
 
@@ -241,8 +221,8 @@ ours. An unauthenticated request to the connector answers `401` with a
 means something between you and us refused the connection, which is common from
 inside sandboxed containers.
 
-**A tool returns nothing.** There are no records of that kind for your account
-yet. If you expected some, email hello@wgrace.co.
+**Claude says With Grace is not available for your account.** The connector
+is for the With Grace team for now. Sign in with your wgrace.co email.
 
 ## Support
 

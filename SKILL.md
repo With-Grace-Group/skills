@@ -1,117 +1,60 @@
 ---
 name: withgrace
-description: Use when working with With Grace property records, villas, projects, buyer contacts or ad campaigns. Reads and writes through the With Grace connector, which is scoped to the connected account's own records.
+description: Use for With Grace team work through the With Grace connector, chiefly your own Asana tasks (due dates, Status, descriptions, owners) and the pages inside portal.wgrace.co. For the With Grace team only.
 ---
 
 # With Grace
 
 With Grace is an architecture and construction practice in Bali. This skill
-connects an assistant to the With Grace connector so it can read and write the
-records belonging to the connected account.
+connects Claude to the With Grace connector for people on the With Grace team.
+It is not available to clients or villa buyers yet: if the connector lists only
+`with_grace_access`, say that and stop.
 
-Setup is in [README.md](README.md). Once connected, the tools below are
-available. Nothing here works without a connection, so if a tool is missing,
-say so rather than guessing at an answer.
+Setup is in [README.md](README.md). If a tool named below is missing, say so
+rather than guessing.
 
-## What the records are
+## What it is for today
 
-| Record | Holds |
-| --- | --- |
-| `organizations` | The company a set of records belongs to |
-| `projects` | A development, with its name and its stage |
-| `properties` | An individual villa or lot: its code, status, price, area and phase |
-| `contacts` | People who have been in touch about a project |
-| `ad_campaigns` | Marketing campaigns, and which finished cut each one uses. Readable; creating and changing one is restricted |
-| `ownerships` | Who owns a share of a villa, and the terms of that share. Readable; creating and changing one is restricted |
-| `owner_statements` | A villa's monthly figures, draft until posted and never edited after. A change to a posted statement is a new draft that amends it. Readable; creating and changing one is restricted |
-| `owner_statement_lines` | The income and cost lines behind one statement, written once with it and never changed after. Readable; creating and changing one is restricted |
-| `owner_payouts` | A payment made to an owner against their share, draft until posted and never edited after. Readable; creating and changing one is restricted |
-| `owner_ledger_entries` | The running balance for an owner, covering profit, payouts and any correction. Nothing here is ever deleted; a mistake is reversed with a new entry. Readable; creating and changing one is restricted |
+1. **Your own Asana.** Read your tasks, tidy them, and keep the board easy to
+   read at a glance.
+2. **Work inside portal.wgrace.co.** Village pages, villa rooms, studio
+   proposals, the CRM pipeline, room documents and ads production.
 
-Properties belong to a project. Projects belong to an organization.
+## Asana
 
-**`properties` is the individual villa, not the development.** The two are easy
-to swap and the mistake is expensive: answering about a whole development when
-somebody asked about the villa they are buying. If a question is about price,
-area, availability or phase, it is about a `property`. If it is about a stage,
-a name or what is being marketed, it is about a `project`.
-
-Call `list_entities` if you are unsure what exists. It is the authority; this
-table is a description of it and can fall behind.
-
-## Tools
+Start with `asana_connection_status`. If it is not connected, call
+`asana_connect` and give the person the link to approve. Every Asana tool acts
+as that person, through their own connection.
 
 | Tool | Use |
 | --- | --- |
-| `list_entities` | The record kinds available |
-| `count_records` | How many of each kind exist |
-| `list_records` | Read records of one kind, with an optional `limit` |
-| `get_record` | Read one record by its id |
-| `create_record` | Add one record |
-| `update_record` | Change fields on one record |
-| `project_overview` | Where each project is, what is true now, and what happens next |
-| `set_project_stage` | Move a project to land, design, development or complete |
-| `start_project_marketing` | Begin marketing a project. Refused while it is still on land |
-| `latest_ad` | The newest finished ad for a project, and where to fetch it |
-| `list_connectable_projects` | Which projects could have a CRM connected |
-| `crm_connection_status` | What one project has connected, and what needs reconnecting |
-| `owner_post` | Post a draft owner statement or payout. Administrators only |
-| `owner_amend` | Open a draft that amends a posted owner statement. Administrators only |
-| `owner_reverse` | Reverse an owner ledger entry with a new entry and a reason. Administrators only |
-| `get_owner_history` | Every earlier version of an ownership, statement or payout |
+| `asana_my_tasks` | Your open tasks and the ones finished this week, each with its due date, Status and description |
+| `asana_project_tasks` | One project's tasks, by Asana project id |
+| `asana_update_task` | Set a due date, a Status, a description, an owner, or mark done |
+| `asana_comment` | Add progress or a decision as a comment |
+| `asana_create_task` | Add a task |
+| `asana_add_to_section` | Put an existing task on a second board |
 
-Your client's own tool list is the authority, not this table. A connection may
-expose more than this skill describes, including tools for records your account
-cannot read; those refuse in words rather than returning nothing, so report the
-refusal rather than treating it as an empty answer.
+**A tidy task has three things:** a due date for when it should be done, a
+Status so people can see whether it has started, and a description that says
+in one line what the task is. Progress and decisions go in a comment.
 
-## How to use it well
+**Status is a field, not a board section.** Pass its option name, such as Todo
+or In Progress, to `asana_update_task`. If the tool says the board has no
+Status field, tell the person; adding the field is a board setting.
 
-**Every figure comes from a record.** Price, area, availability, phase and any
-campaign number live in the rows these tools return. Never estimate one, never
-average one into existence, and never carry a figure from an earlier answer.
-If a record is missing the field, say the field is not recorded.
+**One task at a time, and ask first.** Suggest the due date, Status and
+description for one task, wait for a yes, then save. Never change a task the
+person has not approved, and never wipe a description someone wrote.
 
-**Read before writing.** `list_records` or `get_record` first, so an update
-changes what you think it changes. `update_record` reports which fields it
-ignored; read that rather than assuming a write landed.
+**Finished or no longer needed?** Mark it complete with `completed: true`.
 
-**The connection decides what is visible.** These tools return the connected
-account's own records and nothing else. An empty result means there is nothing
-there for this account, not that the tools failed. A refusal says so in words:
-if you get one, report it rather than treating it as an empty answer.
+## Company procedures
 
-**Some fields cannot be changed.** A record's id, its creation time and the
-organization it belongs to are fixed. Attempting them is ignored rather than
-refused, which is why the ignored list is worth reading.
-
-**Ask before creating.** A created record is real to everyone who reads it
-afterwards. Confirm the details with the person first.
-
-**Some records are readable but not writable.** Campaigns are one: they are
-produced and published by With Grace, so `create_record` and `update_record`
-refuse them for a client account and say so. Report that refusal rather than
-retrying it or working around it with a contact or a project.
-
-**Owner records are never deleted.** Money in them is whole US cents. A posted
-statement or payout is corrected by amending it and posting the amendment; a
-ledger entry by reversing it. For the full procedure, call `find_skill` with
-"Sanctuary owner statement" and follow the `coo-sv` skill it returns.
-
-## Worked example
-
-> Which villas are still available at the hillside project, and what do they cost?
-
-1. `list_records` with `entity: "projects"` to find the project and its id
-2. `list_records` with `entity: "properties"`
-3. Filter to that project's id, and to `status: "available"`
-4. Report the codes, prices and areas exactly as the records give them
-
-If none is available, say so. Do not offer the nearest alternative as though it
-were available.
+Before work a company procedure covers, call `find_skill` with a short
+description of the task, load the top result with `get_skill` and follow it.
 
 ## When something is not there
 
-Say what is missing and stop. "No price is recorded for that villa" is a useful
-answer. An invented figure about a property someone may buy is not, and it is
-the failure this skill exists to prevent.
+Say what is missing and stop. Never estimate a price, an area or a date. A null
+is not a zero: say that nothing is recorded.
