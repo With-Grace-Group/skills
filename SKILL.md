@@ -43,6 +43,10 @@ purpose and needs only an owner, until it goes stale: a Draft after 3 months, a
 Pending or Todo after a year, counted from when it was created. A description
 is optional, so never ask for one. Progress and decisions go in a comment.
 
+**Say why a date is missing.** Status helps: Pending or Draft parks a task that
+cannot have dates yet. So when a date is missing, say "No due date (not Pending
+or Draft)", and offer Pending or Draft when a task is parked on purpose.
+
 **Status is a field, not a board section.** Pass its option name, such as Todo
 or In Progress, to `asana_update_task`. If the tool says the board has no
 Status field, tell the person; adding the field is a board setting.
