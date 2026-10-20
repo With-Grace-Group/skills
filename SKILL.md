@@ -32,6 +32,7 @@ as that person, through their own connection.
 | `asana_project_tasks` | One project's tasks, by Asana project id |
 | `asana_update_task` | Set a due date, a Status, a description, an owner, or mark done |
 | `asana_comment` | Add progress or a decision as a comment |
+| `asana_task_comments` | Read a task's comments, oldest first |
 | `asana_create_task` | Add a task |
 | `asana_add_to_section` | Put an existing task on a second board |
 
