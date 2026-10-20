@@ -43,9 +43,12 @@ in one line what the task is. Progress and decisions go in a comment.
 or In Progress, to `asana_update_task`. If the tool says the board has no
 Status field, tell the person; adding the field is a board setting.
 
-**One task at a time, and ask first.** Suggest the due date, Status and
-description for one task, wait for a yes, then save. Never change a task the
-person has not approved, and never wipe a description someone wrote.
+**Keep going, and ask before each save.** Run the checks and read the tasks
+without stopping to ask. Stop only when the person must do something, such as
+signing in, or to approve a change. Show five tasks at a time in a short table
+(the task, what it is missing, your suggestion), save them all on one yes, then
+go straight on to the next five. Never change a task the person has not
+approved, and never wipe a description someone wrote.
 
 **Finished or no longer needed?** Mark it complete with `completed: true`.
 
