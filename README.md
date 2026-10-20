@@ -37,7 +37,7 @@ we will help you through it.
 **The With Grace team**, signed in with a wgrace.co email. Claude can:
 
 - read your Asana tasks and help you give each one a due date, a Status and a
-  one line description, one task at a time, saving only what you approve
+  one line description, five tasks at a time, saving only what you approve
 - work on village pages, villa rooms, studio proposals, the CRM pipeline, room
   documents and ads production in portal.wgrace.co
 
