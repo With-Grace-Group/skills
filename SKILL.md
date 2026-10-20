@@ -28,17 +28,20 @@ as that person, through their own connection.
 
 | Tool | Use |
 | --- | --- |
+| `asana_hygiene` | Your hygiene list: the open tasks you created, lowest score first, with what each is missing |
 | `asana_my_tasks` | Your open tasks and the ones finished this week, each with its due date, Status and description |
 | `asana_project_tasks` | One project's tasks, by Asana project id |
-| `asana_update_task` | Set a due date, a Status, a description, an owner, or mark done |
+| `asana_update_task` | Set an owner, a start date, a due date, a Status, or mark done |
 | `asana_comment` | Add progress or a decision as a comment |
 | `asana_task_comments` | Read a task's comments, oldest first |
 | `asana_create_task` | Add a task |
 | `asana_add_to_section` | Put an existing task on a second board |
 
-**A tidy task has three things:** a due date for when it should be done, a
-Status so people can see whether it has started, and a description that says
-in one line what the task is. Progress and decisions go in a comment.
+**A tidy task has three things:** an owner, a start date and a due date, with
+the start on or before the due date. A task set to Pending or Draft is parked on
+purpose and needs only an owner, until it goes stale: a Draft after 3 months, a
+Pending or Todo after a year, counted from when it was created. A description
+is optional, so never ask for one. Progress and decisions go in a comment.
 
 **Status is a field, not a board section.** Pass its option name, such as Todo
 or In Progress, to `asana_update_task`. If the tool says the board has no

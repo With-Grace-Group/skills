@@ -36,8 +36,9 @@ we will help you through it.
 
 **The With Grace team**, signed in with a wgrace.co email. Claude can:
 
-- read your Asana tasks and help you give each one a due date, a Status and a
-  one line description, five tasks at a time, saving only what you approve
+- read your Asana hygiene list and help you give each task an owner, a start
+  date and a due date (or park it as Pending or Draft), five tasks at a time,
+  saving only what you approve
 - work on village pages, villa rooms, studio proposals, the CRM pipeline, room
   documents and ads production in portal.wgrace.co
 
@@ -165,7 +166,7 @@ Check with `codex mcp get withgrace`.
 ## Add the skill
 
 The connector gives your assistant the tools. [SKILL.md](SKILL.md) tells it how
-to use them well: Asana first, one task at a time, and nothing saved without your yes.
+to use them well: Asana first, five tasks at a time, and nothing saved without your yes.
 
 For Claude Code, clone this repository into your skills directory:
 
